@@ -16,16 +16,13 @@ import initishbhatt.com.loaders.util.Helper;
 
 public abstract class Loader extends View {
 
+    private int animationDuration = 500;
+    private int firstShadowColor = 0;
+    private int secondShadowColor = 0;
 
-    public int animationDuration = 500;
 
-    public float[] xCorArray;
-
-    public Paint defaultCirclePaint;
-    public Paint selectedCirclePaint;
-
-    public Paint firstShadowPaint;
-    public Paint secondShadowPaint;
+    private Paint firstShadowPaint;
+    private Paint secondShadowPaint;
 
     private boolean isShadowColorSet = false;
 
@@ -38,10 +35,37 @@ public abstract class Loader extends View {
     public int calcuatedHeight = 0;
 
     public int calculatedWidth = 0;
-    private int defaultColor;
-    private int selectedColor;
-    public int radius;
-    public boolean showRunningShadow;
+    private int defaultColor = ContextCompat.getColor(getContext(), R.color.loader_default);
+    private int selectedColor = ContextCompat.getColor(getContext(), R.color.loader_selected);
+    public int radius = 30;
+    public boolean showRunningShadow = true;
+
+    public Paint getDefaultCirclePaint() {
+        return defaultCirclePaint;
+    }
+
+    public Paint getSelectedCirclePaint() {
+        return selectedCirclePaint;
+    }
+
+    private Paint defaultCirclePaint;
+    private Paint selectedCirclePaint;
+
+    public Paint getFirstShadowPaint() {
+        return firstShadowPaint;
+    }
+
+    public Paint getSecondShadowPaint() {
+        return secondShadowPaint;
+    }
+
+    public int getAnimationDuration() {
+        return animationDuration;
+    }
+
+    public void setAnimationDuration(int animationDuration) {
+        this.animationDuration = animationDuration;
+    }
 
     public int getDefaultColor() {
         return defaultColor;
@@ -49,6 +73,9 @@ public abstract class Loader extends View {
 
     public void setDefaultColor(int defaultColor) {
         this.defaultColor = ContextCompat.getColor(getContext(), defaultColor);
+        if (defaultCirclePaint != null) {
+            defaultCirclePaint.setColor(defaultColor);
+        }
     }
 
     public int getSelectedColor() {
@@ -57,7 +84,10 @@ public abstract class Loader extends View {
 
     public void setSelectedColor(int selectedColor) {
         this.selectedColor = ContextCompat.getColor(getContext(), selectedColor);
-        initShadowPaint();
+        if (selectedCirclePaint != null) {
+            selectedCirclePaint.setColor(selectedColor);
+            initShadowPaint();
+        }
     }
 
     public int getRadius() {
@@ -95,8 +125,6 @@ public abstract class Loader extends View {
         initShadowPaint();
     }
 
-    private int firstShadowColor;
-    private int secondShadowColor;
 
     public Loader(Context context) {
         super(context);
@@ -157,11 +185,11 @@ public abstract class Loader extends View {
 
             initFirstShadowPaint();
 
-            initSecondShadowpaint();
+            initSecondShadowPaint();
         }
     }
 
-    private void initSecondShadowpaint() {
+    private void initSecondShadowPaint() {
         secondShadowPaint = new Paint();
         secondShadowPaint.setAntiAlias(true);
         secondShadowPaint.setStyle(Paint.Style.FILL);

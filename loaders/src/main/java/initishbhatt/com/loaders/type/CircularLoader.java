@@ -19,7 +19,7 @@ public class CircularLoader extends Loader {
     private int bigCircleRadius;
     private int numberOfDots = 8;
     private float[] yCorArray;
-    private float sinVal = 0.7071f;
+    private float[] xCorArray;
 
     public int getBigCircleRadius() {
         return bigCircleRadius;
@@ -35,6 +35,7 @@ public class CircularLoader extends Loader {
         initCoordinates();
         initDefaultCirclePaint();
         initSelectedCirclePaint();
+        initShadowPaint();
     }
 
     public CircularLoader(Context context, @Nullable AttributeSet attrs) {
@@ -57,6 +58,7 @@ public class CircularLoader extends Loader {
 
     @Override
     public void initCoordinates() {
+        float sinVal = 0.7071f;
         float sin45Radius = sinVal * this.bigCircleRadius;
 
         xCorArray = new float[numberOfDots];
@@ -86,6 +88,7 @@ public class CircularLoader extends Loader {
 
     @Override
     public void initAttributes(AttributeSet attributeSet) {
+        super.initAttributes(attributeSet);
         TypedArray typedArray = getContext().obtainStyledAttributes(attributeSet, R.styleable.CircularLoader, 0, 0);
         this.bigCircleRadius = typedArray.getDimensionPixelSize(R.styleable.CircularLoader_big_circle_radius, 60);
         typedArray.recycle();
@@ -111,7 +114,7 @@ public class CircularLoader extends Loader {
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    if (System.currentTimeMillis() - logTime >= animationDuration) {
+                    if (System.currentTimeMillis() - logTime >= getAnimationDuration()) {
 
                         selectedPosition++;
 
@@ -123,7 +126,7 @@ public class CircularLoader extends Loader {
                         logTime = System.currentTimeMillis();
                     }
                 }
-            }, animationDuration);
+            }, getAnimationDuration());
         }
     }
 
@@ -144,13 +147,13 @@ public class CircularLoader extends Loader {
 
         for (int i = 0; i < numberOfDots - 1; i++) {
             if (i + 1 == selectedPosition) {
-                canvas.drawCircle(xCorArray[i], yCorArray[i], radius, selectedCirclePaint);
+                canvas.drawCircle(xCorArray[i], yCorArray[i], radius, getSelectedCirclePaint());
             } else if (this.showRunningShadow && i + 1 == firstShadowPos) {
-                canvas.drawCircle(xCorArray[i], yCorArray[i], radius, firstShadowPaint);
+                canvas.drawCircle(xCorArray[i], yCorArray[i], radius, getFirstShadowPaint());
             } else if (this.showRunningShadow && i + 1 == secondShadowPos) {
-                canvas.drawCircle(xCorArray[i], yCorArray[i], radius, secondShadowPaint);
+                canvas.drawCircle(xCorArray[i], yCorArray[i], radius, getSecondShadowPaint());
             } else {
-                canvas.drawCircle(xCorArray[i], yCorArray[i], radius, defaultCirclePaint);
+                canvas.drawCircle(xCorArray[i], yCorArray[i], radius, getDefaultCirclePaint());
             }
 
         }
