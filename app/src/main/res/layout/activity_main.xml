@@ -1,18 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="initishbhatt.com.loaderkit.MainActivity">
+    android:background="@color/grey"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".MainActivity">
 
-    <TextView
+    <initishbhatt.com.loaders.type.CircularLoader
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-</android.support.constraint.ConstraintLayout>
+        app:anim_dur="1000"
+        app:big_circle_radius="42dp"
+        app:circle_radius="14dp"
+        app:default_color="@color/purple_default"
+        app:first_shadow_color="@color/pink_selected"
+        app:second_shadow_color="@color/pink_default"
+        app:selected_color="@color/purple_selected"
+        app:show_running_shadow="true" />
+</LinearLayout>

@@ -19,7 +19,6 @@ public class CircularLoader extends Loader {
     private int bigCircleRadius;
     private int numberOfDots = 8;
     private float[] yCorArray;
-    private float sinVal = 0.7071f;
 
     public int getBigCircleRadius() {
         return bigCircleRadius;
@@ -57,6 +56,7 @@ public class CircularLoader extends Loader {
 
     @Override
     public void initCoordinates() {
+        float sinVal = 0.7071f;
         float sin45Radius = sinVal * this.bigCircleRadius;
 
         xCorArray = new float[numberOfDots];
@@ -86,6 +86,7 @@ public class CircularLoader extends Loader {
 
     @Override
     public void initAttributes(AttributeSet attributeSet) {
+        super.initAttributes(attributeSet);
         TypedArray typedArray = getContext().obtainStyledAttributes(attributeSet, R.styleable.CircularLoader, 0, 0);
         this.bigCircleRadius = typedArray.getDimensionPixelSize(R.styleable.CircularLoader_big_circle_radius, 60);
         typedArray.recycle();
@@ -111,7 +112,7 @@ public class CircularLoader extends Loader {
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    if (System.currentTimeMillis() - logTime >= animationDuration) {
+                    if (System.currentTimeMillis() - logTime >= getAnimationDuration()) {
 
                         selectedPosition++;
 
@@ -123,7 +124,7 @@ public class CircularLoader extends Loader {
                         logTime = System.currentTimeMillis();
                     }
                 }
-            }, animationDuration);
+            }, getAnimationDuration());
         }
     }
 
