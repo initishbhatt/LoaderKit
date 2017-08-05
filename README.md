@@ -1,4 +1,4 @@
-# LoaderKit
+# LoaderKit [![BuddyBuild](https://dashboard.buddybuild.com/api/statusImage?appID=5985f13787e8110001770bee&branch=dev&build=latest)](https://dashboard.buddybuild.com/apps/5985f13787e8110001770bee/build/latest?branch=dev)
 Android Loading animations
 
 # Circular Loader
