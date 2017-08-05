@@ -1,14 +1,13 @@
 package initishbhatt.com.loaderkit;
 
 import android.os.Bundle;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 
 import initishbhatt.com.loaders.type.CircularLoader;
 
 public class MainActivity extends AppCompatActivity {
-    private LinearLayout container;
+    private RelativeLayout container;
     private CircularLoader circularLoader;
 
     @Override
@@ -19,14 +18,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initView() {
-        container = (LinearLayout) findViewById(R.id.container);
-        circularLoader = new CircularLoader(this);
+        container = (RelativeLayout) findViewById(R.id.container);
+        circularLoader = new CircularLoader(MainActivity.this);
         circularLoader.setPadding(20, 20, 20, 20);
-      //  circularLoader.setDefaultColor(ContextCompat.getColor(this, R.color.blue_default));
-        //circularLoader.setSelectedColor(ContextCompat.getColor(this, R.color.blue_selected));
+        //  circularLoader.setDefaultColor(ContextCompat.getColor(this, R.color.blue_default));
+        // circularLoader.setSelectedColor(ContextCompat.getColor(this, R.color.blue_selected));
         circularLoader.setBigCircleRadius(116);
         circularLoader.setRadius(40);
-        circularLoader.setAnimationDuration(100);
+        circularLoader.setAnimationDuration(500);
         container.addView(circularLoader);
     }
 }

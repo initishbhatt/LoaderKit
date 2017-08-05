@@ -19,6 +19,7 @@ public class CircularLoader extends Loader {
     private int bigCircleRadius;
     private int numberOfDots = 8;
     private float[] yCorArray;
+    private float[] xCorArray;
 
     public int getBigCircleRadius() {
         return bigCircleRadius;
@@ -146,13 +147,13 @@ public class CircularLoader extends Loader {
 
         for (int i = 0; i < numberOfDots - 1; i++) {
             if (i + 1 == selectedPosition) {
-                canvas.drawCircle(xCorArray[i], yCorArray[i], radius, selectedCirclePaint);
+                canvas.drawCircle(xCorArray[i], yCorArray[i], radius, getSelectedCirclePaint());
             } else if (this.showRunningShadow && i + 1 == firstShadowPos) {
-                canvas.drawCircle(xCorArray[i], yCorArray[i], radius, firstShadowPaint);
+                canvas.drawCircle(xCorArray[i], yCorArray[i], radius, getFirstShadowPaint());
             } else if (this.showRunningShadow && i + 1 == secondShadowPos) {
-                canvas.drawCircle(xCorArray[i], yCorArray[i], radius, secondShadowPaint);
+                canvas.drawCircle(xCorArray[i], yCorArray[i], radius, getSecondShadowPaint());
             } else {
-                canvas.drawCircle(xCorArray[i], yCorArray[i], radius, defaultCirclePaint);
+                canvas.drawCircle(xCorArray[i], yCorArray[i], radius, getDefaultCirclePaint());
             }
 
         }
