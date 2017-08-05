@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="Loader">
+        <attr name="default_color" format="color" />
+        <attr name="selected_color" format="color" />
+        <attr name="circle_radius" format="dimension" />
+        <attr name="anim_dur" format="integer" />
+        <attr name="show_running_shadow" format="boolean" />
+        <attr name="first_shadow_color" format="color" />
+        <attr name="second_shadow_color" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="CircularLoader">
+        <attr name="big_circle_radius" format="dimension" />
+    </declare-styleable>
+
+</resources>
