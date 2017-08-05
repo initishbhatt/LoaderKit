@@ -34,6 +34,7 @@ public class CircularLoader extends Loader {
         initCoordinates();
         initDefaultCirclePaint();
         initSelectedCirclePaint();
+        initShadowPaint();
     }
 
     public CircularLoader(Context context, @Nullable AttributeSet attrs) {
