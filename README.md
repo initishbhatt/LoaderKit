@@ -5,7 +5,14 @@ Android Loading animations
 
 ![alt text](https://github.com/initishbhatt/LoaderKit/blob/dev/screenshot/circleloader.gif "Circle Loader")
 
-#. Through XML
+# Download
+
+## Gradle
+```
+compile 'com.initishbhatt.androidlibs:loader:0.1'
+```
+
+## Through XML
 ```
 <com.initishbhatt.loaders.type.CircularLoader
         android:id="@+id/loader"
@@ -22,13 +29,15 @@ Android Loading animations
         app:show_running_shadow="true" />
  
  ```
-#. Through Code
+## Through Code
 
 ```
- CircularLoader circularLoader = new CircularLoader(MainActivity.this);
+        CircularLoader circularLoader = new CircularLoader(MainActivity.this);
         circularLoader.setPadding(20, 20, 20, 20);
-        circularLoader.setDefaultColor(ContextCompat.getColor(this, R.color.blue_default));
-        circularLoader.setSelectedColor(ContextCompat.getColor(this, R.color.blue_selected));
+        circularLoader.setDefaultColor(R.color.blue_default);
+        circularLoader.setSelectedColor(R.color.blue_selected);
         circularLoader.setBigCircleRadius(116);
         circularLoader.setRadius(40);
         circularLoader.setAnimationDuration(500);
+ 
+ ```
