@@ -3,6 +3,8 @@ Android Loading animations
 
 # Circular Loader
 
+![alt text](https://github.com/initishbhatt/LoaderKit/blob/dev/screenshot/circleloader.gif "Circle Loader")
+
 #. Through XML
 ```
 <initishbhatt.com.loaders.type.CircularLoader
