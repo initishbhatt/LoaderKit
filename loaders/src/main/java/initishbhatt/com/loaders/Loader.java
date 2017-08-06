@@ -14,31 +14,64 @@ import initishbhatt.com.loaders.util.Helper;
  * @author nitishbhatt
  */
 
-public abstract class Loader extends View {
+public class Loader extends View {
 
     private int animationDuration = 500;
     private int firstShadowColor = 0;
     private int secondShadowColor = 0;
-
-
     private Paint firstShadowPaint;
     private Paint secondShadowPaint;
-
     private boolean isShadowColorSet = false;
-
-    public boolean shouldAnimate = true;
-
-    public int selectedPosition = 1;
-
-    public long logTime = 0;
-
-    public int calcuatedHeight = 0;
-
-    public int calculatedWidth = 0;
+    private boolean shouldAnimate = true;
+    private int selectedPosition = 1;
+    private long logTime = 0;
+    private int calculatedHeight = 0;
+    private int calculatedWidth = 0;
     private int defaultColor = ContextCompat.getColor(getContext(), R.color.loader_default);
     private int selectedColor = ContextCompat.getColor(getContext(), R.color.loader_selected);
-    public int radius = 30;
-    public boolean showRunningShadow = true;
+    private int radius = 30;
+    private boolean showRunningShadow = true;
+
+    public boolean isShouldAnimate() {
+        return shouldAnimate;
+    }
+
+    public void setShouldAnimate(boolean shouldAnimate) {
+        this.shouldAnimate = shouldAnimate;
+    }
+
+    public int getSelectedPosition() {
+        return selectedPosition;
+    }
+
+    public void setSelectedPosition(int selectedPosition) {
+        this.selectedPosition = selectedPosition;
+    }
+
+    public int getCalculatedHeight() {
+        return calculatedHeight;
+    }
+
+    public void setCalculatedHeight(int calculatedHeight) {
+        this.calculatedHeight = calculatedHeight;
+    }
+
+    public int getCalculatedWidth() {
+        return calculatedWidth;
+    }
+
+    public void setCalculatedWidth(int calculatedWidth) {
+        this.calculatedWidth = calculatedWidth;
+    }
+
+
+    public long getLogTime() {
+        return logTime;
+    }
+
+    public void setLogTime(long logTime) {
+        this.logTime = logTime;
+    }
 
     public Paint getDefaultCirclePaint() {
         return defaultCirclePaint;
@@ -74,7 +107,7 @@ public abstract class Loader extends View {
     public void setDefaultColor(int defaultColor) {
         this.defaultColor = ContextCompat.getColor(getContext(), defaultColor);
         if (defaultCirclePaint != null) {
-            defaultCirclePaint.setColor(defaultColor);
+            defaultCirclePaint.setColor(this.defaultColor);
         }
     }
 
@@ -85,7 +118,7 @@ public abstract class Loader extends View {
     public void setSelectedColor(int selectedColor) {
         this.selectedColor = ContextCompat.getColor(getContext(), selectedColor);
         if (selectedCirclePaint != null) {
-            selectedCirclePaint.setColor(selectedColor);
+            selectedCirclePaint.setColor(this.selectedColor);
             initShadowPaint();
         }
     }
@@ -96,7 +129,6 @@ public abstract class Loader extends View {
 
     public void setRadius(int radius) {
         this.radius = radius;
-        initCoordinates();
     }
 
     public boolean isShowRunningShadow() {
@@ -159,8 +191,6 @@ public abstract class Loader extends View {
         typedArray.recycle();
     }
 
-    public abstract void initCoordinates();
-
     public void initSelectedCirclePaint() {
         selectedCirclePaint = new Paint();
         selectedCirclePaint.setAntiAlias(true);
@@ -204,12 +234,12 @@ public abstract class Loader extends View {
     }
 
     public void startAnimation() {
-        shouldAnimate = true;
+        setShouldAnimate(true);
         invalidate();
     }
 
     public void stopAnimation() {
-        shouldAnimate = false;
+        setShouldAnimate(false);
         invalidate();
     }
 

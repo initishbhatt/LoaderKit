@@ -13,7 +13,7 @@
     tools:context=".MainActivity">
 
 
-   <!-- <initishbhatt.com.loaders.type.CircularLoader
+    <initishbhatt.com.loaders.type.CircularLoader
         android:id="@+id/loader"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -25,5 +25,5 @@
         app:first_shadow_color="@color/pink_selected"
         app:second_shadow_color="@color/pink_default"
         app:selected_color="@color/purple_selected"
-        app:show_running_shadow="true" />-->
+        app:show_running_shadow="true" />
 </RelativeLayout>
