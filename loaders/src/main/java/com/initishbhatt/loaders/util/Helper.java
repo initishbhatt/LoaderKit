@@ -1,4 +1,4 @@
-package initishbhatt.com.loaders.util;
+package com.initishbhatt.loaders.util;
 
 import android.graphics.Color;
 

@@ -1,4 +1,4 @@
-package initishbhatt.com.loaders.type;
+package com.initishbhatt.loaders.type;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -7,9 +7,9 @@ import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 
-import initishbhatt.com.loaders.Loader;
-import initishbhatt.com.loaders.LoaderInteractor;
-import initishbhatt.com.loaders.R;
+import com.initishbhatt.loaders.Loader;
+import com.initishbhatt.loaders.LoaderInteractor;
+import com.initishbhatt.loaders.R;
 
 /**
  * @author nitishbhatt
