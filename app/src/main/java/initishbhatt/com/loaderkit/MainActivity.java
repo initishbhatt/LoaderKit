@@ -1,11 +1,10 @@
 package initishbhatt.com.loaderkit;
 
 import android.os.Bundle;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.RelativeLayout;
 
-import initishbhatt.com.loaders.type.CircularLoader;
+import com.initishbhatt.loaders.type.CircularLoader;
 
 public class MainActivity extends AppCompatActivity {
     private RelativeLayout container;

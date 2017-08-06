@@ -1,4 +1,4 @@
-package initishbhatt.com.loaders;
+package com.initishbhatt.loaders;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -8,7 +8,8 @@ import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
 import android.view.View;
 
-import initishbhatt.com.loaders.util.Helper;
+import com.initishbhatt.loaders.R;
+import com.initishbhatt.loaders.util.Helper;
 
 /**
  * @author nitishbhatt

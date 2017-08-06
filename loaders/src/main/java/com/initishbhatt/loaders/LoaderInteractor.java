@@ -1,4 +1,4 @@
-package initishbhatt.com.loaders;
+package com.initishbhatt.loaders;
 
 /**
  * @author nitishbhatt

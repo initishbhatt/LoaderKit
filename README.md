@@ -7,7 +7,7 @@ Android Loading animations
 
 #. Through XML
 ```
-<initishbhatt.com.loaders.type.CircularLoader
+<com.initishbhatt.loaders.type.CircularLoader
         android:id="@+id/loader"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
